@@ -8,18 +8,24 @@
   <body>
     <h2>NoQ (Angular)</h2>
     <div ng-controller="NoqCtrl">
-      <span>{{members.length}} waiting</span>
-      [ <a href="" ng-click="archive()">Remove Selected from Queue</a> ]
-      <ul class="styled">
+      <span>{{members.length}} Waiting</span>
+      <ul>
         <li ng-repeat="member in members">
           <input type="checkbox" ng-model="member.done">
-          <span class="done-{{member.done}}">{{member.text}}</span>
+          <span class="done-{{member.done}}">{{member.text}}</span>,
+          <span class="done-{{member.done}}">{{member.email}}</span>,
+          <span class="done-{{member.done}}">{{member.mobile}}</span>
         </li>
       </ul>
       <form ng-submit="addMember()">
         <input type="text" ng-model="memberText"  size="30"
-               placeholder="add new queue member here" required>
-        <input class="btn-primary" type="submit" value="Add to queue">
+               placeholder="name" required><br>
+        <input type="text" ng-model="memberEmail"  size="30"
+               placeholder="email" required><br>
+        <input type="text" ng-model="memberMobile"  size="30"
+               placeholder="mobile" required><br>
+        <input class="btn-primary" type="submit" value="Add to queue"><br/>
+      <a href="" ng-click="archive()">Remove Selected from Queue</a>
       </form>
     </div>
   </body>
