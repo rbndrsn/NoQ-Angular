@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    <script src="noq.js"></script>
+    <link rel="stylesheet" href="noq.css">
+  </head>
+  <body>
+    <h2>NoQ (Angular)</h2>
+    <div ng-controller="NoqCtrl">
+      <span>{{members.length}} waiting</span>
+      [ <a href="" ng-click="archive()">Remove Selected from Queue</a> ]
+      <ul class="styled">
+        <li ng-repeat="member in members">
+          <input type="checkbox" ng-model="member.done">
+          <span class="done-{{member.done}}">{{member.text}}</span>
+        </li>
+      </ul>
+      <form ng-submit="addMember()">
+        <input type="text" ng-model="memberText"  size="30"
+               placeholder="add new queue member here" required>
+        <input class="btn-primary" type="submit" value="Add to queue">
+      </form>
+    </div>
+  </body>
+</html>
